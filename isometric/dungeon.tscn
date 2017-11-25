@@ -1,0 +1,128 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://globals.gd" type="Script" id=2]
+[ext_resource path="res://monster.gd" type="Script" id=3]
+[ext_resource path="res://troll2.png" type="Texture" id=4]
+[ext_resource path="res://troll.gd" type="Script" id=5]
+[ext_resource path="res://troll.png" type="Texture" id=6]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 16.0
+
+[node name="dungeon" type="Node2D"]
+
+[node name="floor" type="TileMap" parent="."]
+
+mode = 1
+tile_set = ExtResource( 1 )
+cell/size = Vector2( 128, 64 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 1
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -851956, 0, -851955, 0, -851954, 0, -786420, 1, -786419, 0, -786418, 0, -720884, 0, -720883, 0, -720882, 0, -655348, 1, -655347, 0, -655346, 0, -589812, 1, -589811, 0, -589810, 0, -524276, 0, -524275, 1, -524274, 0, -458740, 0, -458739, 0, -458738, 0, -393210, 0, -393209, 0, -393208, 0, -393207, 0, -393206, 0, -393205, 0, -393204, 0, -393203, 0, -393202, 0, -327674, 0, -327673, 0, -327672, 1, -327671, 1, -327670, 1, -327669, 1, -327668, 1, -327667, 0, -327666, 0, -262138, 0, -262137, 0, -262136, 0, -262135, 0, -262134, 0, -262133, 0, -262132, 0, -262131, 0, -262130, 0, -196602, 0, -196601, 0, -196600, 1, -196599, 0, -196598, 1, -196597, 0, -196596, 0, -196595, 0, -196594, 0, -131066, 0, -131065, 0, -65530, 0, -65529, 0, -65528, 1, -65527, 0, 6, 0, 7, 1, 8, 1, 9, 1, 65542, 0, 65543, 0, 65544, 1, 65545, 1, 131078, 0, 131079, 0, 131080, 1, 131081, 1, 196614, 0, 196615, 0, 196616, 0 )
+
+[node name="walls" type="TileMap" parent="."]
+
+transform/pos = Vector2( -26, 26 )
+mode = 1
+tile_set = ExtResource( 1 )
+cell/size = Vector2( 128, 64 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 1
+cell/y_sort = true
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -917493, 2, -851957, 2, -851956, 2, -851955, 2, -851954, 2, -786421, 2, -786418, 2, -720885, 2, -720882, 2, -655349, 2, -655346, 2, -589813, 2, -589810, 2, -524277, 2, -524274, 2, -458747, 2, -458746, 2, -458745, 2, -458744, 2, -458743, 2, -458742, 2, -458741, 2, -458738, 2, -458737, 2, -393211, 2, -393202, 2, -327675, 2, -327667, 2, -327666, 2, -262139, 2, -262132, 2, -262131, 2, -196603, 2, -196599, 2, -196598, 2, -196597, 2, -196596, 2, -196595, 2, -131067, 2, -131063, 2, -65531, 2, -65527, 2, 5, 2, 9, 2, 65541, 2, 65545, 2, 131077, 2, 131081, 2, 196613, 2, 196614, 2, 196615, 2, 196616, 2, 196617, 2 )
+script/script = ExtResource( 2 )
+
+[node name="human" type="KinematicBody2D" parent="walls" groups=[
+"enemies",
+]]
+
+transform/pos = Vector2( 552, 274 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.001
+script/script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/human"]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="walls/human"]
+
+[node name="troll2" type="Sprite" parent="walls/human/Sprite"]
+
+transform/pos = Vector2( -7.70663, -29.8455 )
+texture = ExtResource( 4 )
+
+[node name="zombie" type="KinematicBody2D" parent="walls"]
+
+transform/pos = Vector2( 387.38, 270.037 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1.10289, 0, 0, 0.998519, 0, -3 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.001
+script/script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/zombie"]
+
+transform/pos = Vector2( 0, -3 )
+transform/scale = Vector2( 1.10289, 0.998519 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Camera2D" type="Camera2D" parent="walls/zombie"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+
+[node name="Sprite" type="Sprite" parent="walls/zombie"]
+
+[node name="troll" type="Sprite" parent="walls/zombie/Sprite"]
+
+transform/pos = Vector2( -5.04932, -30.037 )
+texture = ExtResource( 6 )
+
+
