@@ -24,7 +24,7 @@ func _fixed_process(delta):
 		print(get_node("../Timer").get_wait_time())
 		queue_free()
 		
-	if(abs(get_parent().x-get_pos().x)<300 and abs(get_parent().y-get_pos().y)<300):
+	if(sqrt(pow(get_parent().x-get_pos().x,2)+pow(get_parent().y-get_pos().y,2))<350):
 		MOTION_SPEED = 50 # Pixels/seconds
 		if (get_parent().x<get_pos().x):
 			motion += Vector2(1, 0)
@@ -35,7 +35,7 @@ func _fixed_process(delta):
 		if (get_parent().y>get_pos().y):
 			motion += Vector2(0, -1)
 	
-	if(abs(get_parent().x-get_pos().x)<100 and abs(get_parent().y-get_pos().y)<100):
+	if(sqrt(pow(get_parent().x-get_pos().x,2)+pow(get_parent().y-get_pos().y,2))<100):
 		MOTION_SPEED = 250 # Pixels/seconds
 		if (get_parent().x<get_pos().x):
 			motion += Vector2(1, 0)
@@ -49,13 +49,19 @@ func _fixed_process(delta):
 		MOTION_SPEED = 50 # Pixels/seconds
 		if(OS.get_unix_time()>oldtime):
 			oldtime=OS.get_unix_time()
-			if (randi()%2==1):
+			var ran =randi()
+			if (ran%3==1):
 				motion += Vector2(1, 0)
-			else: 
+			elif (ran%3==2):
+				motion += Vector2(0, 0)
+			else:
 				motion += Vector2(-1, 0)
-			if (randi()%2==1):
+			 ran =randi()
+			if (ran%3==1):
 				motion += Vector2(0, 1)
-			else: 
+			elif (ran%3==2):
+				motion += Vector2(0, 0)
+			else:
 				motion += Vector2(0, -1)
 			temp=motion
 		else:

@@ -12,7 +12,7 @@ func _ready():
 
 func selected(o):
 	print("Option selected: ",o)
-	if(o == "Play Again"):
+	if(o == "PlayAgain"):
 		get_tree().change_scene("dungeon.tscn")
 	elif(o =="Play"):
 		get_tree().change_scene("dungeon.tscn")

@@ -25,7 +25,7 @@ points = Vector2Array( 66.095, -0.62516, -5.90501, 31.3748, -21.905, 23.3748, 50
 [sub_resource type="ConvexPolygonShape2D" id=5]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -1.13694, 12.6943, 4.42508, 7.41194, 10.1609, 12.8594, 4.6858, 18.3068 )
+points = Vector2Array( -1.38173, 12.5202, 4.49685, 7.00608, 10.3754, 12.658, 4.42427, 18.7235 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -147,7 +147,7 @@ transform/pos = Vector2( 68, 51 )
 transform/scale = Vector2( 0.953126, 1 )
 input/pickable = false
 shapes/0/shape = SubResource( 5 )
-shapes/0/transform = Matrix32( 12.0725, 0, 0, 6.0579, -57.8679, -78.9008 )
+shapes/0/transform = Matrix32( 12.0725, 0, 0, 6.0579, -54.7049, -93.9742 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -158,10 +158,10 @@ bounce = 0.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/StaticBody2D"]
 
-transform/pos = Vector2( -57.8679, -78.9008 )
+transform/pos = Vector2( -54.7049, -93.9742 )
 transform/scale = Vector2( 12.0725, 6.0579 )
 build_mode = 0
-polygon = Vector2Array( 4.6858, 18.3068, 10.1609, 12.8594, 4.42508, 7.41194, -1.13694, 12.6943 )
+polygon = Vector2Array( 4.42427, 18.7235, 10.3754, 12.658, 4.49685, 7.00608, -1.38173, 12.5202 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 

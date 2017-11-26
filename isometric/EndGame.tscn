@@ -52,13 +52,13 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 730.0
 margin/top = 411.0
-margin/right = 849.0
+margin/right = 843.0
 margin/bottom = 469.0
 script/script = ExtResource( 2 )
 __meta__ = {
 "_editor_icon": ExtResource( 3 )
 }
-options = "Play Again
+options = "PlayAgain
 Quit"
 orientation = 1
 offset = 10
