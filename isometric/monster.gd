@@ -8,7 +8,7 @@ extends KinematicBody2D
 # as long as it starts from a non-colliding spot too.
 
 # Member variables
-var MOTION_SPEED = 50 # Pixels/seconds
+var MOTION_SPEED = 200 # Pixels/seconds
 var oldtime=OS.get_unix_time()
 var temp=Vector2 (0,0)
 
