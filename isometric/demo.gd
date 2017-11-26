@@ -14,6 +14,8 @@ func selected(o):
 	print("Option selected: ",o)
 	if(o == "Play Again"):
 		get_tree().change_scene("dungeon.tscn")
+	elif(o =="Play"):
+		get_tree().change_scene("dungeon.tscn")
 	elif(o == "Quit"):
 		get_tree().quit()
 
