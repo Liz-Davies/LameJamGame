@@ -8,19 +8,14 @@ extends Control
 func _ready():
 	for menu in get_node("menus").get_children():
 		menu.connect("option_selected", self, "selected")
-	select_menu(0)
 	pass
 
 func selected(o):
 	print("Option selected: ",o)
-	if(o == "Back"):
-		select_menu(0)
-	elif(o == "Go to Menu 1"):
-		select_menu(1)
-	elif(o == "Go to Menu 2"):
-		select_menu(2)
-	elif(o == "Go to Menu 3"):
-		select_menu(3)
+	if(o == "Play"):
+		get_tree().change_scene("dungeon.tscn")
+	elif(o == "Quit"):
+		get_tree().quit()
 
 func select_menu(n):
 	for menu in range(0, get_node("menus").get_child_count()):
