@@ -25,7 +25,7 @@ points = Vector2Array( 66.095, -0.62516, -5.90501, 31.3748, -21.905, 23.3748, 50
 [sub_resource type="ConvexPolygonShape2D" id=5]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -2.61627, 12.4153, 5, 4, 13.0679, 12.4153, 5, 20 )
+points = Vector2Array( -1.13694, 12.6943, 4.42508, 7.41194, 10.1609, 12.8594, 4.6858, 18.3068 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -143,8 +143,8 @@ region_rect = Rect2( 30, 95, 132, 83 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite"]
 
-transform/pos = Vector2( 64.6105, 53.7736 )
-transform/scale = Vector2( 0.676004, 0.674521 )
+transform/pos = Vector2( 68, 51 )
+transform/scale = Vector2( 0.953126, 1 )
 input/pickable = false
 shapes/0/shape = SubResource( 5 )
 shapes/0/transform = Matrix32( 12.0725, 0, 0, 6.0579, -57.8679, -78.9008 )
@@ -161,7 +161,7 @@ bounce = 0.0
 transform/pos = Vector2( -57.8679, -78.9008 )
 transform/scale = Vector2( 12.0725, 6.0579 )
 build_mode = 0
-polygon = Vector2Array( 5, 20, 13.0679, 12.4153, 5, 4, -2.61627, 12.4153 )
+polygon = Vector2Array( 4.6858, 18.3068, 10.1609, 12.8594, 4.42508, 7.41194, -1.13694, 12.6943 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 

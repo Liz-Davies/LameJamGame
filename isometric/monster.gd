@@ -16,6 +16,7 @@ func _fixed_process(delta):
 	var motion = Vector2()
 	if (sqrt(pow(get_parent().x-get_pos().x,2)+pow(get_parent().y-get_pos().y,2))<50):
 		print ("eaten")
+		get_node("../Timer").set_wait_time(get_node("../Timer").get_wait_time()+20)
 		queue_free()
 		
 	if(abs(get_parent().x-get_pos().x)<300 and abs(get_parent().y-get_pos().y)<300):
@@ -30,7 +31,7 @@ func _fixed_process(delta):
 			motion += Vector2(0, -1)
 	
 	if(abs(get_parent().x-get_pos().x)<100 and abs(get_parent().y-get_pos().y)<100):
-		MOTION_SPEED = 150 # Pixels/seconds
+		MOTION_SPEED = 250 # Pixels/seconds
 		if (get_parent().x<get_pos().x):
 			motion += Vector2(1, 0)
 		if (get_parent().x>get_pos().x):

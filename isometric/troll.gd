@@ -23,7 +23,6 @@ func _fixed_process(delta):
 		motion += Vector2(1, 0)
 	get_parent().y=get_pos().y
 	get_parent().x=get_pos().x
-	print (get_pos())
 	motion = motion.normalized()*MOTION_SPEED*delta
 	motion = move(motion)
 	
