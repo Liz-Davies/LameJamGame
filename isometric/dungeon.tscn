@@ -29,17 +29,21 @@ script/source = "extends Camera2D
 var shakeDegree;
 var offSetGoal = Vector2(0.0,0.0);
 var curOffSet = Vector2(0.0,0.0);
+var timerStart;
 var timer;
 
 func _ready():
 	shakeDegree = 0.0
-	timer = get_node(\"../../Timer\").get_wait_time()
+	
+	timerStart = get_node(\"../../Timer\").get_time_left()
+	print(timerStart)
 	set_fixed_process(true)
 
 func _fixed_process(delta):
-	shakeDegree=floor(timer+20/get_node(\"../../Timer\").get_wait_time())
-	print(shakeDegree)
-	print(get_node(\"../../Timer\").get_wait_time())
+	var timer = get_node(\"../../Timer\").get_time_left() 
+	get_node(\"CanvasModulate\").set_color(Color(1,timer/timerStart,timer/timerStart))
+	
+	shakeDegree=floor(10*(timerStart-timer/timerStart))
 	if(offSetGoal.x == curOffSet.x):
 		getNewX()
 		changeY()
@@ -66,7 +70,6 @@ func changeY():
 
 func changeX():
 	var temp = offSetGoal.x-curOffSet.x
-	print(temp);
 	if(temp<0.001):
 		curOffSet.x = offSetGoal.x
 	else:
@@ -144,7 +147,7 @@ texture = ExtResource( 4 )
 
 process/pause_mode = 1
 process_mode = 0
-wait_time = 200.0
+wait_time = 30.0
 one_shot = true
 autostart = true
 
@@ -188,6 +191,12 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 script/script = SubResource( 6 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="walls/zombie/Camera2D"]
+
+visibility/visible = false
+visibility/light_mask = 65601
+color = Color( 1, 0.140625, 0.140625, 1 )
 
 [node name="Sprite" type="Sprite" parent="walls/zombie"]
 
