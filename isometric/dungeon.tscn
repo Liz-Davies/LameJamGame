@@ -16,11 +16,11 @@ shader/shading_mode = 0
 custom_solver_bias = 0.0
 radius = 16.0
 
-[sub_resource type="CanvasItemMaterial" id=5]
+[sub_resource type="CanvasItemMaterial" id=3]
 
 shader/shading_mode = 0
 
-[sub_resource type="GDScript" id=6]
+[sub_resource type="GDScript" id=4]
 
 resource/name = "CameraDrift"
 script/source = "extends Camera2D
@@ -41,13 +41,15 @@ func _ready():
 
 func _fixed_process(delta):
 	timer = get_node(\"../../Timer\").get_time_left()
+	if(timer==0):
+		get_tree().change_scene(\"EndGame.tscn\")
+
 	var percentDecr = timer/timerStart
 	var percentIncr = timerStart-timer/timerStart
 	if(percentDecr > 1):
 		percentDecr = 1
 	if(percentIncr <0):
 		percentIncr = 0
-	var timer = get_node(\"../../Timer\").get_time_left() 
 	get_node(\"CanvasModulate\").set_color(Color(1,percentDecr,percentDecr))
 	shakeDegree=floor(10*(percentIncr))
 	if(offSetGoal.x == curOffSet.x):
@@ -179,7 +181,7 @@ _update_shape_index = 0
 
 [node name="Camera2D" type="Camera2D" parent="walls/zombie"]
 
-material/material = SubResource( 5 )
+material/material = SubResource( 3 )
 anchor_mode = 1
 rotating = false
 current = true
@@ -196,7 +198,7 @@ drag_margin/left = 0.14
 drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
-script/script = SubResource( 6 )
+script/script = SubResource( 4 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="walls/zombie/Camera2D"]
 
