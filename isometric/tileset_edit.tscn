@@ -134,7 +134,7 @@ trigger = false
 
 [node name="Sprite" type="Sprite" parent="."]
 
-transform/pos = Vector2( 598.114, -83.3818 )
+transform/pos = Vector2( 600.114, -83.3818 )
 texture = ExtResource( 1 )
 centered = false
 modulate = Color( 1, 0, 0, 1 )
