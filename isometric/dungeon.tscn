@@ -50,7 +50,9 @@ func _fixed_process(delta):
 		percentDecr = 1
 	if(percentIncr <0):
 		percentIncr = 0
-	get_node(\"CanvasModulate\").set_color(Color(1,percentDecr,percentDecr))
+	timer = get_node(\"../../Timer\").get_time_left()
+	if(timer!=0):
+		get_node(\"CanvasModulate\").set_color(Color(1,percentDecr,percentDecr))
 	shakeDegree=floor(10*(percentIncr))
 	if(offSetGoal.x == curOffSet.x):
 		getNewX()
